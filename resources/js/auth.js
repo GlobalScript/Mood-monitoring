@@ -1,18 +1,18 @@
 
 class Auth {
     constructor() {
-        this.token = window.localStorage.getItem('token');
+        this.token = window.sessionStorage.getItem('token');
         if (this.token) {
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.token;
         }
     }
     login (token) {        
-        window.localStorage.setItem('token', token);
+        window.sessionStorage.setItem('token', token);
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         this.token = token;
     }
     logout () {
-        window.localStorage.removeItem('token');
+        window.sessionStorage.removeItem('token');
         this.token = null;
     }
     check () {

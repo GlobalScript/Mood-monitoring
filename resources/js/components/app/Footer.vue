@@ -10,7 +10,7 @@
           <div class="footer-copyright">
             <div class="container black-text">
             © 2022 Global Script
-            <a class="black-text right" href="#!">Git Hub</a>
+            <a class="black-text right" href="https://github.com/GlobalScript/Mood-monitoring">Git Hub</a>
             </div>
           </div>
         </footer>

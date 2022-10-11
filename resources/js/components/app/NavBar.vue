@@ -17,12 +17,14 @@
             <li @click="profile">
               <a class=" black-text">
                 <i class="material-icons">account_circle</i>
+                Профіль
               </a>
             </li>
             <li class="divider" tabindex="-1"></li>
             <li  @click.prevent="logout">
               <a href="#" class="black-text">
                 <i class="material-icons">assignment_return</i>
+                Вихід
               </a>
             </li>
           </ul>

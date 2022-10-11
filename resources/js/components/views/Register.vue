@@ -49,9 +49,20 @@
         </label>
       </p>
     </div>
+    <!--warning message-->
+  <div class="row" v-if="registerError">
+    <div class="col s12 m12">
+      <div class="card red accent-1" >
+        <div class="login-warning-message">
+          <p>Користувач з такою поштою вже зареєстрований </p>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!--warning message-->
     <div class="card-action">
       <div>
-        <button class="btn waves-effect waves-light auth-submit" type="submit">
+        <button :disabled="disabled" class="btn waves-effect waves-light auth-submit" type="submit">
           Реєстрація
           <i class="material-icons right">check</i>
         </button>
@@ -62,16 +73,6 @@
       </div>
     </div>
   </form>
-  <!--warning message-->
-  <div class="row" v-if="registerError">
-    <div class="col s12 m6">
-      <div class="card red accent-1" >
-        <div class="card-content">
-          <p>Користувач з такою поштою вже зареєстрований </p>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -116,6 +117,9 @@ export default {
   computed:{
       registerError(){
         return this.$store.getters['authorizationModule/registerError'];
+      },
+      disabled() {
+        return this.$store.getters['authorizationModule/disabled'];
       }
   }
 }

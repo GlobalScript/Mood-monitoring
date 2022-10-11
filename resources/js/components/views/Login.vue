@@ -30,15 +30,25 @@
           v-if="v$.password.$error && invalid"
         >Має містити шість або більше знаків. Для прикладу - 1hello23</small>
     </div>
+    <!--warning message-->
+    <div class="row" v-if="loginError">
+    <div class="col s12 m12">
+      <div class="card red accent-1" >
+        <div class="login-warning-message">
+          <p>Такого користувача не знайдено</p>
+        </div>
+      </div>
     </div>
+  </div>
+    </div>
+    <!--warning message-->
   <div class="card-action">
       <div>
-      <button
+      <button :disabled="disabled"
           class="btn waves-effect waves-light auth-submit"
           type="submit"
       >
         Увійти
-      
       </button>
       </div>
       <div class="center form-out black-text" @click.stop="back">
@@ -46,16 +56,6 @@
       </div>
   </div>
 </form>
-<!--warning message-->
-  <div class="row" v-if="loginError">
-    <div class="col s12 m6">
-      <div class="card red accent-1" >
-        <div class="card-content">
-          <p>Такого користувача не знайдено</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 <script>
 
@@ -103,6 +103,9 @@ export default {
     computed:{
       loginError(){
         return this.$store.getters['authorizationModule/loginError'];
+      },
+      disabled() {
+        return this.$store.getters['authorizationModule/disabled'];
       }
     }
 }

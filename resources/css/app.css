@@ -218,6 +218,10 @@
   .server-error{
 	margin-left: 500px;
   }
+  .login-warning-message {
+	text-align: center;
+	padding: 15px;
+  }
   
   
 
